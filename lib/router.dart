@@ -5,14 +5,14 @@ import 'package:go_router_playground/features/third_page.dart';
 
 import 'features/first/detail_page.dart';
 import 'features/first/first_page.dart';
-import 'navigation/navigation_bar_scaffold.dart';
+import 'navigation/scaffold_with_nav_bar.dart';
 
 final router = GoRouter(
   debugLogDiagnostics: kDebugMode,
   initialLocation: '/',
   routes: [
     ShellRoute(
-      builder: (context, state, child) => NavigationBarScaffold(child: child),
+      builder: (context, state, child) => ScaffoldWithNavBar(child: child),
       //
       // pageBuilder: (context, state, child) => _FadeTransitionRoute(
       //   child: NavigationBarScaffold(state: state, child: child),
