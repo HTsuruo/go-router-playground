@@ -3,7 +3,7 @@ import 'package:go_router/go_router.dart';
 
 import 'navigation_item.dart';
 
-class NavigationBarScaffold extends StatefulWidget {
+class NavigationBarScaffold extends StatelessWidget {
   const NavigationBarScaffold({
     super.key,
     required this.child,
@@ -12,15 +12,10 @@ class NavigationBarScaffold extends StatefulWidget {
   final Widget child;
 
   @override
-  State<NavigationBarScaffold> createState() => _NavigationBarScaffoldState();
-}
-
-class _NavigationBarScaffoldState extends State<NavigationBarScaffold> {
-  @override
   Widget build(BuildContext context) {
     final location = GoRouterState.of(context).location;
     return Scaffold(
-      body: widget.child,
+      body: child,
       bottomNavigationBar: BottomNavigationBar(
         currentIndex: NavigationItem.getFromLocation(location).index,
         onTap: (index) {
