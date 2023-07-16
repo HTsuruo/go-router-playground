@@ -16,14 +16,14 @@ class ScaffoldWithNavBar extends StatelessWidget {
     final location = GoRouterState.of(context).location;
     return Scaffold(
       body: child,
-      bottomNavigationBar: BottomNavigationBar(
-        currentIndex: NavigationItem.getFromLocation(location).index,
-        onTap: (index) {
+      bottomNavigationBar: NavigationBar(
+        selectedIndex: NavigationItem.getFromLocation(location).index,
+        onDestinationSelected: (index) {
           context.go(NavigationItem.values[index].location);
         },
-        items: [
+        destinations: [
           for (final item in NavigationItem.values)
-            BottomNavigationBarItem(
+            NavigationDestination(
               icon: Icon(item.iconData),
               label: item.label,
             ),
