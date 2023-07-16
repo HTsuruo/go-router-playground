@@ -1,18 +1,14 @@
 import 'package:flutter/foundation.dart';
-import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
-import 'package:go_router_playground/detail_page.dart';
-import 'package:go_router_playground/first_page.dart';
-import 'package:go_router_playground/second_page.dart';
-import 'package:go_router_playground/third_page.dart';
+import 'package:go_router_playground/features/second/second_page.dart';
+import 'package:go_router_playground/features/third_page.dart';
 
+import 'features/first/detail_page.dart';
+import 'features/first/first_page.dart';
 import 'logger.dart';
-import 'navigation_bar_scaffold.dart';
-
-final GlobalKey<NavigatorState> _rootNavigatorKey = GlobalKey<NavigatorState>();
+import 'navigation/navigation_bar_scaffold.dart';
 
 final router = GoRouter(
-  navigatorKey: _rootNavigatorKey,
   debugLogDiagnostics: kDebugMode,
   initialLocation: '/',
   routes: [
@@ -31,6 +27,12 @@ final router = GoRouter(
           pageBuilder: (context, state) => const NoTransitionPage(
             child: FirstPage(),
           ),
+          routes: [
+            GoRoute(
+              path: 'detail',
+              builder: (context, state) => const DetailPage(),
+            ),
+          ],
         ),
         GoRoute(
           path: '/second',
@@ -44,23 +46,19 @@ final router = GoRouter(
             child: ThirdPage(),
           ),
         ),
-        GoRoute(
-          path: '/detail',
-          builder: (context, state) => const DetailPage(),
-        ),
       ],
     ),
   ],
 );
 
-class _FadeTransitionRoute<T> extends CustomTransitionPage<T> {
-  _FadeTransitionRoute({required super.child})
-      : super(
-          transitionsBuilder: (context, animation, _, child) {
-            return FadeTransition(
-              opacity: animation,
-              child: child,
-            );
-          },
-        );
-}
+// class _FadeTransitionRoute<T> extends CustomTransitionPage<T> {
+//   _FadeTransitionRoute({required super.child})
+//       : super(
+//           transitionsBuilder: (context, animation, _, child) {
+//             return FadeTransition(
+//               opacity: animation,
+//               child: child,
+//             );
+//           },
+//         );
+// }

@@ -38,9 +38,6 @@ class _NavigationBarScaffoldState extends State<NavigationBarScaffold> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: const Text('Shell Route'),
-      ),
       body: widget.child,
       bottomNavigationBar: BottomNavigationBar(
         currentIndex:
