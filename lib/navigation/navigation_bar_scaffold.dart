@@ -1,24 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
-import 'package:recase/recase.dart';
 
-enum _NavigationItem {
-  first(iconData: Icons.home),
-  second(iconData: Icons.settings),
-  third(iconData: Icons.person),
-  ;
-
-  const _NavigationItem({required this.iconData});
-  final IconData iconData;
-  String get label => name.pascalCase;
-  String get location => index == 0 ? '/' : '/$name';
-
-  static _NavigationItem getFromLocation(String location) =>
-      _NavigationItem.values.firstWhere(
-        (item) => location == '/${item.name}',
-        orElse: () => _NavigationItem.first,
-      );
-}
+import 'navigation_item.dart';
 
 class NavigationBarScaffold extends StatefulWidget {
   const NavigationBarScaffold({
@@ -41,12 +24,12 @@ class _NavigationBarScaffoldState extends State<NavigationBarScaffold> {
       body: widget.child,
       bottomNavigationBar: BottomNavigationBar(
         currentIndex:
-            _NavigationItem.getFromLocation(widget.state.location).index,
+            NavigationItem.getFromLocation(widget.state.location).index,
         onTap: (index) {
-          context.go(_NavigationItem.values[index].location);
+          context.go(NavigationItem.values[index].location);
         },
         items: [
-          for (final item in _NavigationItem.values)
+          for (final item in NavigationItem.values)
             BottomNavigationBarItem(
               icon: Icon(item.iconData),
               label: item.label,
