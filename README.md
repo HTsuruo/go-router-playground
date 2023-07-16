@@ -1,16 +1,10 @@
 # go_router_playground
 
-A new Flutter project.
+This is a playground by using [go_router](https://pub.dev/packages/go_router) and [go_router_builder](https://pub.dev/packages/go_router_builder).
 
-## Getting Started
+## References
 
-This project is a starting point for a Flutter application.
-
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+- Andrea氏の記事
+  - [Flutter Bottom Navigation Bar with Stateful Nested Routes using GoRouter](https://codewithandrea.com/articles/flutter-bottom-navigation-bar-nested-routes-gorouter/)
+- 公式レポジトリ
+  - https://github.com/flutter/packages/tree/main/packages/go_router/example/lib
