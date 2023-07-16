@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
+import 'package:recase/recase.dart';
 
 enum _NavigationItem {
   first(iconData: Icons.home),
@@ -9,7 +10,7 @@ enum _NavigationItem {
 
   const _NavigationItem({required this.iconData});
   final IconData iconData;
-  String get label => name.toUpperCase();
+  String get label => name.pascalCase;
 
   static _NavigationItem getFromLocation(String location) =>
       _NavigationItem.values.firstWhere(
