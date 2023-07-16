@@ -11,6 +11,7 @@ enum _NavigationItem {
   const _NavigationItem({required this.iconData});
   final IconData iconData;
   String get label => name.pascalCase;
+  String get location => index == 0 ? '/' : '/$name';
 
   static _NavigationItem getFromLocation(String location) =>
       _NavigationItem.values.firstWhere(
@@ -45,8 +46,7 @@ class _NavigationBarScaffoldState extends State<NavigationBarScaffold> {
         currentIndex:
             _NavigationItem.getFromLocation(widget.state.location).index,
         onTap: (index) {
-          context
-              .go(index == 0 ? '/' : '/${_NavigationItem.values[index].name}');
+          context.go(_NavigationItem.values[index].location);
         },
         items: [
           for (final item in _NavigationItem.values)
