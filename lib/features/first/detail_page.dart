@@ -14,6 +14,7 @@ class _DetailPageState extends State<DetailPage> {
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
 
+    // Scaffold in ScaffoldとなってしまうがFloatingActionButtonを表示するために仕方なく
     return Scaffold(
       appBar: AppBar(
         title: const Text('Detail'),
