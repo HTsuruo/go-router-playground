@@ -12,10 +12,17 @@ class SecondPage extends StatelessWidget {
     final tabs = [
       for (final item in TabItem.values) Tab(text: item.name.pascalCase),
     ];
+    final selectedTab =
+        switch (GoRouterState.of(context).queryParameters['tab']) {
+      'a' => TabItem.secondA,
+      'b' => TabItem.secondB,
+      _ => TabItem.secondA,
+    };
 
     return NavigationView(
       titleLabel: 'ShellBranch Root - Second',
       child: DefaultTabController(
+        initialIndex: selectedTab.index,
         length: tabs.length,
         child: Column(
           children: [
