@@ -5,7 +5,9 @@ import 'package:go_router_playground/navigation/navigation_view.dart';
 import 'package:intersperse/intersperse.dart';
 
 class FirstPage extends StatelessWidget {
-  const FirstPage({super.key});
+  const FirstPage({super.key, required this.detailPath});
+
+  final String detailPath;
 
   @override
   Widget build(BuildContext context) {
@@ -17,13 +19,13 @@ class FirstPage extends StatelessWidget {
           children: <Widget>[
             ElevatedButton(
               onPressed: () {
-                context.push('/detail');
+                context.push(detailPath);
               },
               child: const Text('context.push()'),
             ),
             ElevatedButton(
               onPressed: () {
-                context.go('/detail');
+                context.go(detailPath);
               },
               child: const Text('context.go()'),
             )

@@ -21,7 +21,9 @@ final router = GoRouter(
             GoRoute(
               path: '/first',
               pageBuilder: (context, state) => const NoTransitionPage(
-                child: FirstPage(),
+                child: FirstPage(
+                  detailPath: '/first/detail',
+                ),
               ),
               routes: [
                 GoRoute(
@@ -37,8 +39,16 @@ final router = GoRouter(
             GoRoute(
               path: '/second',
               pageBuilder: (context, state) => const NoTransitionPage(
-                child: SecondPage(),
+                child: SecondPage(
+                  detailPath: '/second/detail',
+                ),
               ),
+              routes: [
+                GoRoute(
+                  path: 'detail',
+                  builder: (context, state) => const DetailPage(),
+                ),
+              ],
             ),
           ],
         ),
