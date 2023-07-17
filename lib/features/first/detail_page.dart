@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:go_router_playground/widgets/router_location_label.dart';
 
 class DetailPage extends StatefulWidget {
   const DetailPage({super.key});
@@ -20,9 +21,18 @@ class _DetailPageState extends State<DetailPage> {
         title: const Text('Detail'),
       ),
       body: Center(
-        child: Text(
-          'count: $_count',
-          style: theme.textTheme.titleLarge,
+        child: Column(
+          children: [
+            const RouterLocationLabel(),
+            Expanded(
+              child: Center(
+                child: Text(
+                  'count: $_count',
+                  style: theme.textTheme.titleLarge,
+                ),
+              ),
+            ),
+          ],
         ),
       ),
       floatingActionButton: FloatingActionButton(
