@@ -21,6 +21,9 @@ class _ThirdPageState extends State<ThirdPage> {
     timer = Timer.periodic(const Duration(seconds: 1), (timer) {
       setState(() {
         _tick = timer.tick;
+        if (_tick >= 30) {
+          timer.cancel();
+        }
       });
     });
   }
