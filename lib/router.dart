@@ -40,14 +40,14 @@ final router = GoRouter(
             GoRoute(
               path: '/second',
               pageBuilder: (context, state) => const NoTransitionPage(
-                child: SecondPage(
-                  detailPath: '/second/:id',
-                ),
+                child: SecondPage(),
               ),
               routes: [
                 GoRoute(
-                  path: ':id',
-                  builder: (context, state) => const SecondDetailPage(),
+                  path: ':index',
+                  builder: (context, state) => SecondDetailPage(
+                    index: int.tryParse(state.pathParameters['index']!),
+                  ),
                 ),
               ],
             ),

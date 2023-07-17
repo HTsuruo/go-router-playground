@@ -3,9 +3,7 @@ import 'package:go_router/go_router.dart';
 import 'package:go_router_playground/navigation/navigation_view.dart';
 
 class SecondPage extends StatelessWidget {
-  const SecondPage({super.key, required this.detailPath});
-
-  final String detailPath;
+  const SecondPage({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -15,6 +13,7 @@ class SecondPage extends StatelessWidget {
     return NavigationView(
       titleLabel: 'ShellBranch Root - Second',
       child: ListView.separated(
+        key: const ValueKey('SecondPageListView'),
         itemCount: 50,
         itemBuilder: (context, index) => ListTile(
           title: Text('index: $index'),
@@ -24,7 +23,7 @@ class SecondPage extends StatelessWidget {
             child: BackButton(color: colorScheme.primary),
           ),
           onTap: () {
-            context.go(detailPath);
+            context.go('/second/$index');
           },
         ),
         separatorBuilder: (context, _) => const Divider(),
