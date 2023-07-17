@@ -9,7 +9,7 @@ import 'navigation/scaffold_with_navigation.dart';
 
 final router = GoRouter(
   debugLogDiagnostics: kDebugMode,
-  initialLocation: '/',
+  initialLocation: '/first',
   routes: [
     StatefulShellRoute.indexedStack(
       builder: (context, state, navigationShell) => ScaffoldWithNavigation(
@@ -19,7 +19,7 @@ final router = GoRouter(
         StatefulShellBranch(
           routes: [
             GoRoute(
-              path: '/',
+              path: '/first',
               pageBuilder: (context, state) => const NoTransitionPage(
                 child: FirstPage(),
               ),
