@@ -18,6 +18,7 @@ class SecondPage extends StatelessWidget {
         itemCount: 50,
         itemBuilder: (context, index) => ListTile(
           title: Text('index: $index'),
+          visualDensity: VisualDensity.comfortable,
           trailing: RotatedBox(
             quarterTurns: 2,
             child: BackButton(color: colorScheme.primary),
