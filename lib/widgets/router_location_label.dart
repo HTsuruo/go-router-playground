@@ -1,14 +1,14 @@
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 
-class RectangleFilledLabel extends StatelessWidget {
-  const RectangleFilledLabel({super.key, required this.label});
-
-  final String label;
+class RouterLocationLabel extends StatelessWidget {
+  const RouterLocationLabel({super.key});
 
   @override
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
     final colorScheme = theme.colorScheme;
+    final location = GoRouterState.of(context).location;
     return DecoratedBox(
       decoration: BoxDecoration(
         color: colorScheme.primary,
@@ -16,7 +16,7 @@ class RectangleFilledLabel extends StatelessWidget {
       child: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 8),
         child: Text(
-          label,
+          location,
           style: theme.textTheme.bodyLarge!.copyWith(
             color: colorScheme.onPrimary,
           ),
