@@ -8,7 +8,8 @@ import 'features/first/first_page.dart';
 
 // part 'router_type_safe.g.dart';
 
-// StatefulShellRouteのbuilderは未対応ぽい
+// ref. https://github.com/flutter/packages/pull/4238
+// StatefulShellRouteのbuilderは未対応
 // @TypedStatefulShellRoute(
 //   branches: [
 //     firstBranch,
