@@ -1,9 +1,10 @@
 import 'package:flutter/foundation.dart';
 import 'package:go_router/go_router.dart';
+import 'package:go_router_playground/features/second/second_detail_page.dart';
 import 'package:go_router_playground/features/second/second_page.dart';
 import 'package:go_router_playground/features/third_page.dart';
 
-import 'features/first/detail_page.dart';
+import 'features/first/first_detail_page.dart';
 import 'features/first/first_page.dart';
 import 'navigation/scaffold_with_navigation.dart';
 
@@ -28,7 +29,7 @@ final router = GoRouter(
               routes: [
                 GoRoute(
                   path: 'detail',
-                  builder: (context, state) => const DetailPage(),
+                  builder: (context, state) => const FirstDetailPage(),
                 ),
               ],
             ),
@@ -40,13 +41,13 @@ final router = GoRouter(
               path: '/second',
               pageBuilder: (context, state) => const NoTransitionPage(
                 child: SecondPage(
-                  detailPath: '/second/detail',
+                  detailPath: '/second/:id',
                 ),
               ),
               routes: [
                 GoRoute(
-                  path: 'detail',
-                  builder: (context, state) => const DetailPage(),
+                  path: ':id',
+                  builder: (context, state) => const SecondDetailPage(),
                 ),
               ],
             ),

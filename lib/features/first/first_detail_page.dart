@@ -1,14 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:go_router_playground/widgets/router_location_label.dart';
 
-class DetailPage extends StatefulWidget {
-  const DetailPage({super.key});
+class FirstDetailPage extends StatefulWidget {
+  const FirstDetailPage({super.key});
 
   @override
-  State<DetailPage> createState() => _DetailPageState();
+  State<FirstDetailPage> createState() => _FirstDetailPageState();
 }
 
-class _DetailPageState extends State<DetailPage> {
+class _FirstDetailPageState extends State<FirstDetailPage> {
   var _count = 0;
 
   @override
