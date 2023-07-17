@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
+import 'package:go_router_playground/widgets/router_location_label.dart';
 
 // Scaffold in Scaffoldにならないようにナビゲーション用のViewを作成
 // 画面ごとにAppBarを切り替えたいので適当にラッピング
@@ -27,6 +28,7 @@ class NavigationView extends StatelessWidget {
               : null,
           title: Text(titleLabel),
         ),
+        const RouterLocationLabel(),
         Expanded(child: child),
       ],
     );

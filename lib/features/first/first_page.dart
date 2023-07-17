@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
 import 'package:go_router/go_router.dart';
 import 'package:go_router_playground/navigation/navigation_view.dart';
-import 'package:go_router_playground/widgets/rectangle_filled_label.dart';
 import 'package:intersperse/intersperse.dart';
 
 class FirstPage extends StatelessWidget {
@@ -16,7 +15,6 @@ class FirstPage extends StatelessWidget {
         child: Column(
           mainAxisSize: MainAxisSize.min,
           children: <Widget>[
-            const RectangleFilledLabel(label: 'First Page'),
             ElevatedButton(
               onPressed: () {
                 context.push('/detail');
