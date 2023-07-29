@@ -4,9 +4,9 @@ This is a playground by using [go_router](https://pub.dev/packages/go_router) an
 
 | Feature | Demo |
 |--------|--------|
-| StatefullShellRoute | ![](https://github.com/HTsuruo/go-router-playground/assets/12729025/b3ea23be-7582-43d5-a3e7-791de66ce37c) |
-| PathParameters | ![](https://github.com/HTsuruo/go-router-playground/assets/12729025/e7e0abb7-70d2-4390-ad40-2aec9edfba38) |
-| QueryParameters | ![](https://github.com/HTsuruo/go-router-playground/assets/12729025/01a12d9b-da0f-478b-91a1-a484bf3319e3) |
+| StatefullShellRoute | ![](./demo/gif/stateful_shell_route.gif) |
+| PathParameters | ![](./demo/gif/path_parameters.gif) |
+| QueryParameters | ![](./demo/gif/query_parameters.gif) |
 
 ## References
 
