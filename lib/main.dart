@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_web_plugins/url_strategy.dart';
-import 'package:go_router_playground/router.dart';
+import 'package:go_router_playground/router_type_safe.dart';
 
 void main() {
   usePathUrlStrategy();

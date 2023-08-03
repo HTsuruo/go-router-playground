@@ -1,13 +1,22 @@
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:go_router_playground/features/first/first_detail_page.dart';
 import 'package:go_router_playground/features/second/second_detail_page.dart';
-import 'package:go_router_playground/features/second/second_page.dart';
+import 'package:go_router_playground/features/second/second_type_safe_page.dart';
 import 'package:go_router_playground/features/third_page.dart';
 
 import 'features/first/first_page.dart';
+import 'features/second/tab_item.dart';
+import 'navigation/scaffold_with_navigation.dart';
 
 part 'router_type_safe.g.dart';
+
+final router = GoRouter(
+  routes: $appRoutes,
+  debugLogDiagnostics: kDebugMode,
+  initialLocation: '/first',
+);
 
 // example: https://github.com/flutter/packages/blob/main/packages/go_router_builder/example/lib/stateful_shell_route_example.dart
 @TypedStatefulShellRoute<ShellRouteData>(
@@ -54,19 +63,10 @@ class ShellRouteData extends StatefulShellRouteData {
     GoRouterState state,
     StatefulNavigationShell navigationShell,
   ) {
-    return navigationShell;
+    return ScaffoldWithNavigation(
+      navigationShell: navigationShell,
+    );
   }
-
-  // これを指定すると.indexedStackされなくなる？
-  // ref. https://github.com/flutter/packages/blob/9323e33ed9d8345d87514711dcaeb4cf4159ad1c/packages/go_router/lib/src/route_data.dart#L269-L278
-  // static Widget $navigatorContainerBuilder(
-  //   BuildContext context,
-  //   StatefulNavigationShell navigationShell,
-  // ) {
-  //   return ScaffoldWithNavigation(
-  //     navigationShell: navigationShell,
-  //   );
-  // }
 }
 
 // First Page
@@ -91,13 +91,19 @@ class FirstDetailPageRoute extends GoRouteData {
 }
 
 // Second Page
-@immutable
 class SecondPageRoute extends GoRouteData {
-  const SecondPageRoute();
+  const SecondPageRoute({this.tab});
+
+  final String? tab;
 
   @override
   Widget build(BuildContext context, GoRouterState state) {
-    return const SecondPage();
+    final selectedTab = switch (tab) {
+      'a' => TabItem.secondA,
+      'b' => TabItem.secondB,
+      _ => TabItem.secondA,
+    };
+    return SecondTypeSafePage(tabItem: selectedTab);
   }
 }
 

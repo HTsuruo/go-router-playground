@@ -1,29 +1,26 @@
 import 'package:flutter/material.dart';
-import 'package:go_router/go_router.dart';
 import 'package:go_router_playground/features/second/tab_item.dart';
 import 'package:go_router_playground/navigation/navigation_view.dart';
+import 'package:go_router_playground/router_type_safe.dart';
 import 'package:recase/recase.dart';
 
-// go_router用の画面
-class SecondPage extends StatelessWidget {
-  const SecondPage({super.key});
+// go_router_builder用の画面
+// 型付きのパラメータを受け取ることができる
+class SecondTypeSafePage extends StatelessWidget {
+  const SecondTypeSafePage({super.key, required this.tabItem});
+
+  final TabItem tabItem;
 
   @override
   Widget build(BuildContext context) {
     final tabs = [
       for (final item in TabItem.values) Tab(text: item.name.pascalCase),
     ];
-    final selectedTab =
-        switch (GoRouterState.of(context).uri.queryParameters['tab']) {
-      'a' => TabItem.secondA,
-      'b' => TabItem.secondB,
-      _ => TabItem.secondA,
-    };
 
     return NavigationView(
       titleLabel: 'ShellBranch Root - Second',
       child: DefaultTabController(
-        initialIndex: selectedTab.index,
+        initialIndex: tabItem.index,
         length: tabs.length,
         child: Column(
           children: [
@@ -54,7 +51,7 @@ class _ListView extends StatelessWidget {
     final colorScheme = theme.colorScheme;
 
     return ListView.separated(
-      key: const ValueKey('SecondPageListView'),
+      key: const ValueKey('SecondPageWithParamListView'),
       itemCount: 50,
       itemBuilder: (context, index) => ListTile(
         title: Text('index: $index'),
@@ -64,7 +61,8 @@ class _ListView extends StatelessWidget {
           child: BackButton(color: colorScheme.primary),
         ),
         onTap: () {
-          context.go('/second/$index');
+          // go_router_builderを使う場合
+          SecondDetailPageRoute(index: index).go(context);
         },
       ),
       separatorBuilder: (context, _) => const Divider(),

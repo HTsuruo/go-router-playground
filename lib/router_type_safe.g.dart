@@ -94,11 +94,15 @@ extension $FirstDetailPageRouteExtension on FirstDetailPageRoute {
 }
 
 extension $SecondPageRouteExtension on SecondPageRoute {
-  static SecondPageRoute _fromState(GoRouterState state) =>
-      const SecondPageRoute();
+  static SecondPageRoute _fromState(GoRouterState state) => SecondPageRoute(
+        tab: state.uri.queryParameters['tab'],
+      );
 
   String get location => GoRouteData.$location(
         '/second',
+        queryParams: {
+          if (tab != null) 'tab': tab,
+        },
       );
 
   void go(BuildContext context) => context.go(location);
