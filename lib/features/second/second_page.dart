@@ -13,7 +13,7 @@ class SecondPage extends StatelessWidget {
       for (final item in TabItem.values) Tab(text: item.name.pascalCase),
     ];
     final selectedTab =
-        switch (GoRouterState.of(context).queryParameters['tab']) {
+        switch (GoRouterState.of(context).uri.queryParameters['tab']) {
       'a' => TabItem.secondA,
       'b' => TabItem.secondB,
       _ => TabItem.secondA,

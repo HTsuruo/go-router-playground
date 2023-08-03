@@ -8,7 +8,7 @@ class RouterLocationLabel extends StatelessWidget {
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
     final colorScheme = theme.colorScheme;
-    final location = GoRouterState.of(context).location;
+    final location = GoRouterState.of(context).uri.toString();
     return DecoratedBox(
       decoration: BoxDecoration(
         color: colorScheme.primary,
